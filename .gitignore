@@ -1,0 +1,10 @@
+.env
+node_modules/
+
+storage/*
+!storage/images
+!storage/imports
+!storage/index.html
+
+storage/images/*
+!storage/images/index.html
