@@ -8,7 +8,7 @@ const cors = require('@koa/cors')
 const bodyParser = require('koa-bodyparser')
 const formidable = require('koa2-formidable')
 
-const router = new Router()
+const router = new Router() // extends from koa-router
 require('./app/routes.js')(router)
 
 const storage = require('./storage')
@@ -24,6 +24,7 @@ app.use (formidable({}))
 app.use(bodyParser())
 app.use(cors())
 app.use(router.routes())
+
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', '*');

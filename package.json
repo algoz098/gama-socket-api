@@ -7,6 +7,8 @@
     "lint": "eslint",
     "dev": "nodemon ./index.js --ignore",
     "test": "node ./database/seeds/index.js && jest",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "seed": "node ./database/seeds/index.js"
   },
   "jest": {
