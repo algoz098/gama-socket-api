@@ -1,13 +1,13 @@
 require('dotenv-safe').load()
 var jwt = require('jsonwebtoken');
 
-module.exports = (io) => {
+module.exports = (io, token = null) => {
     let result = false
     
     try {
-        let header = io.handshake.headers['authorization'];
-
-        if (jwt.verify(header, process.env.SECRET)) {
+        token = global.parseIoCookie(io, token)
+        
+        if (jwt.verify(token, process.env.SECRET)) {
             result = true
         }
     } catch (error) {
