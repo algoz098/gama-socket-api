@@ -1,9 +1,10 @@
-// const userController = require('./userController.js');
+const userController = require('./controller/userController');
 
-// const loginSocketMiddleware = require('./middleware/loginSocket.js')
+const loginSocketMiddleware = require('./middleware/loginSocket.js')
 
 module.exports = (io) => {
     return io.on('connection', function (io) {
-        // io.on('user', function (data) { if(loginSocketMiddleware(io)) userController.get(data, io); });
+        io.on('login', function (data) { userController.loginSocket(data, io)});
+        io.on('me', function (data) { if(loginSocketMiddleware(io, data)) userController.meSocket(io); });
     });
 };

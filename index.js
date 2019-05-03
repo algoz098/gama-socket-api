@@ -16,6 +16,8 @@ const locales = require('./locales')
 
 require('./app/model/index.js')
 
+require('./globals/index')
+
 const server = require('http').Server(app.callback())
 
 app.use (formidable({}))
