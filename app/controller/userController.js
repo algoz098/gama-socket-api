@@ -41,7 +41,7 @@ module.exports = {
             code = JSON.parse(code)
 
             let user = await User.findById(code).lean().exec();
-
+            
             io.emit('me', user)
         } catch (error) {
             io.emit('error', error);
