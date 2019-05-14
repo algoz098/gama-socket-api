@@ -9,6 +9,16 @@ module.exports = {
             default: true,
             urls: 'webgs.com.br',
 
+            metadata:{
+                titleTemplate: `WebGS - Gama Example`,
+
+                meta: {
+                    description: { name: 'description', content: 'Example for gama stack' },
+                    keywords: { name: 'keywords', content: 'Quasar website' },
+                    "og:locale": { name: 'og:locale', content: 'en_US' },
+                },
+            },
+
             layout:{
                 component: 'q-layout',
                 type: 'layout',
@@ -50,6 +60,17 @@ module.exports = {
             pages: [
                 {
                     route: '/',
+                    
+                    metadata:{
+                        titleTemplate: `WebGS - Home`,
+
+                        meta: {
+                            description: { name: 'description', content: 'Home for gama stack' },
+                            keywords: { name: 'keywords', content: 'Quasar website' },
+                            equiv: { 'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8' }
+                        },
+                    },
+                    
                     components: [
                         {
                             component: 'common-simple-text',

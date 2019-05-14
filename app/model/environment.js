@@ -6,6 +6,11 @@ var colorSchema = mongoose.Schema({
     value: String
 });
 
+var metadata = mongoose.Schema({
+    titleTemplate: String,
+    meta: {},
+});
+
 var componentSchema = mongoose.Schema({
     component: String,
     type: String,
@@ -15,13 +20,15 @@ var componentSchema = mongoose.Schema({
 var pageSchema = mongoose.Schema({
     title: String,
     route: String,
+    metadata: metadata,
     components: [componentSchema],
 });
-
+    
 var schema = mongoose.Schema(
     {
         name: String,
         default: {type: Boolean, default: false},
+        metadata: metadata,
         urls: Array,
         layout: componentSchema,
         navbar: componentSchema,
